@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family</title>
+    <style>
+        body {
+            font-family: LATO, LATO;
+            margin: 0;
+            padding: 0;
+            background-color: #D3D3D3;
+        }
+        .navbar {
+            background-color: #a4a4a4;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .family-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            margin-bottom: 10px;
+            color: #4a4a4a;
+        }
+        .family-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .family-member {
+            text-align: center;
+            width: 200px;
+        }
+        .family-member img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        .family-member p {
+            margin: 5px 0 0;
+            font-weight: bold;
+        }
+       
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .modal-content h2 {
+            margin: 15px 0;
+            color: #333;
+        }
+        .modal-content p {
+            margin: 10px 0 0;
+            color: #555;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="navbar">
+        <h3>YUSUFF AREAS</h3>
+        <a href="index.html">HOME</a>
+        <a href="bios.html">BIODATA</a>
+        <a href="family.html">FAMILY</a>
+        <a href="experience.html">EXPERIENCE</a>
+        <a href="education.html">EDUCATION</a>
+        <a href="socialmedia.html">SOCIAL MEDIA</a>
+	<a href="gallery.html">GALLERY</a>
+    </div>
+
+    
+    <div class="content">
+        
+        <img src="fam.jpg" alt="Family Portrait" class="family-image">
+
+        <h1>My Family</h1>
+        <p>Click on the family picture to see more.</p>
+        
+        
+        <div class="section" id="parents">
+            <h2>Parents</h2>
+            <div class="family-gallery">
+                <div class="family-member" onclick="showModal('mak2.jpg', 'Mom', 'Jamilah bt Osman - Always my mother, forever my friend.')">
+                    <img src="mak.jpg" alt="Mom">
+                    <p>Mom - Jamilah bt Osman</p>
+                </div>
+                <div class="family-member" onclick="showModal('ayah3.jpg', 'Dad', 'Zaheruddin bin Ismail - Our guide and protector.')">
+                    <img src="ayah.jpg" alt="Dad">
+                    <p>Dad - Zaheruddin bin Ismail</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="section" id="siblings">
+            <h2>Siblings</h2>
+            <div class="family-gallery">
+                <div class="family-member" onclick="showModal('along2.jpg', 'Along', 'Iskandar Zulqarnain - Always leading by example.')">
+                    <img src="along.jpg" alt="Along">
+                    <p>Along - Iskandar Zulqarnain</p>
+                </div>
+                <div class="family-member" onclick="showModal('angah2.jpg', 'Angah', 'Luqman Al-Hakim - Known for his wisdom.')">
+                    <img src="angah.jpg" alt="Angah">
+                    <p>Angah - Luqman Al-Hakim</p>
+                </div>
+                <div class="family-member" onclick="showModal('ablang2.jpg', 'Ablang', 'Muhammad Zulfaqar - Always dependable and kind-hearted.')">
+                    <img src="ablang.jpg" alt="Ablang">
+                    <p>Ablang - Muhammad Zulfaqar</p>
+                </div>
+                <div class="family-member" onclick="showModal('kakak2.jpg', 'Kakak', 'Umaira Nabila - Our creative and loving sister.')">
+                    <img src="kakak.jpg" alt="Kakak">
+                    <p>Kakak - Umaira Nabila</p>
+                </div>
+                <div class="family-member" onclick="showModal('iman2.jpg', 'Iman', 'Muhammad Ali-Imran - Energetic and full of ideas.')">
+                    <img src="iman.jpg" alt="Iman">
+                    <p>Iman - Muhammad Ali-Imran</p>
+                </div>
+                <div class="family-member" onclick="showModal('me2.jpg', 'Adik', 'Salahuddin Yusuff Al-Aiyubi - The most handsome siblings!')">
+                    <img src="me.jpg" alt="Me">
+                    <p>Adik - Salahuddin Yusuff Al-Aiyubi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    <div class="modal" id="familyModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">×</button>
+            <img id="modalImage" src="" alt="Family Member">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        function showModal(image, title, description) {
+            document.getElementById('modalImage').src = image;
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDescription').innerText = description;
+            document.getElementById('familyModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('familyModal').style.display = 'none';
+        }
+    </script>
+<footer>
+        <h5 align="center">
+            <font face="Lato" color="#000" size="3">
+                &copy; 2024 Yusuff. All rights reserved.
+            </font>
+        </h5>
+</body>
+</html>
